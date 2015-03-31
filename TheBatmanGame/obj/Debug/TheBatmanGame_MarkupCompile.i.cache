@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Dropbox\Workspace\C#\TheBatmanGame\TheBatmanGame\obj\Debug\
+C:\Users\Doncho Minkov\Desktop\the-batman-game\TheBatmanGame\obj\Debug\
 TheBatmanGame
 none
 false
 DEBUG;TRACE
-C:\Dropbox\Workspace\C#\TheBatmanGame\TheBatmanGame\App.xaml
-3-496488919
-
-261602906361
+C:\Users\Doncho Minkov\Desktop\the-batman-game\TheBatmanGame\App.xaml
+4655059206
+2965313068
+27-1763020931
 12-1401562060
-Windows\GameWindow.xaml;Windows\HighScoreWindow.xaml;Windows\InitialGameWindow.xaml;
+MainWindow.xaml;Windows\GameWindow.xaml;Windows\HighScoreWindow.xaml;Windows\InitialGameWindow.xaml;
 
 False
 

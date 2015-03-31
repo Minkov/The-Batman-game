@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,9 +19,51 @@ namespace TheBatmanGame.Renderers
     public class WpfGameRenderer :
         IGameRenderer
     {
+        private static string[] enemyImageSources;
         private Canvas canvas;
 
         public event EventHandler<KeyDownEventArgs> UIActionHappened;
+
+        static WpfGameRenderer()
+        {
+            var dir = new DirectoryInfo("./Images/Enemies");
+            enemyImageSources = dir.GetFiles()
+                                   .Select(file => "/Images/Enemies/" + file.Name)
+                                   .ToArray();
+            var b = 5;
+        }
+
+        public WpfGameRenderer(Canvas canvas)
+        {
+            this.canvas = canvas;
+            this.ParentWindow.KeyDown += HandleKeyDown;
+        }
+ 
+        private void HandleKeyDown(object sender, KeyEventArgs args)
+        {
+            var key = args.Key;
+            GameCommand command;
+            switch (key)
+            {
+                case Key.Up:
+                    command = GameCommand.MoveUp;
+                    break;
+                case Key.Down:
+                    command = GameCommand.MoveDown;
+                    break;
+                case Key.Left:
+                    command = GameCommand.MoveLeft;
+                    break;
+                case Key.Right:
+                    command = GameCommand.MoveRight;
+                    break;
+                default:
+                    command = GameCommand.Fire;
+                    break;
+            }
+
+            this.UIActionHappened(this, new KeyDownEventArgs(command));
+        }
 
         public bool IsInBounds(Position position)
         {
@@ -76,7 +119,6 @@ namespace TheBatmanGame.Renderers
         {
             get
             {
-
                 return (int)this.ParentWindow.Height;
             }
         }
@@ -92,39 +134,6 @@ namespace TheBatmanGame.Renderers
                 }
                 return parent as Window;
             }
-        }
-
-        public WpfGameRenderer(Canvas canvas)
-        {
-            this.canvas = canvas;
-
-
-            this.ParentWindow.KeyDown += (sender, args) =>
-             {
-                 var key = args.Key;
-                 GameCommand command;
-                 switch (key)
-                 {
-                     case Key.Up:
-                         command = GameCommand.MoveUp;
-                         break;
-                     case Key.Down:
-                         command = GameCommand.MoveDown;
-                         break;
-                     case Key.Left:
-                         command = GameCommand.MoveLeft;
-                         break;
-                     case Key.Right:
-                         command = GameCommand.MoveRight;
-                         break;
-                     default:
-                         command = GameCommand.Fire;
-                         break;
-                 }
-
-                 this.UIActionHappened(this, new KeyDownEventArgs(command));
-
-             };
         }
 
         public void Clear()
@@ -157,7 +166,7 @@ namespace TheBatmanGame.Renderers
 
         private void DrawYamato(GameObject yamato)
         {
-            var rect = new Rectangle
+            var ell = new Ellipse
             {
                 Width = yamato.Bounds.Width,
                 Height = yamato.Bounds.Height,
@@ -165,9 +174,9 @@ namespace TheBatmanGame.Renderers
                 StrokeThickness = 2
             };
 
-            Canvas.SetLeft(rect, yamato.Position.Left);
-            Canvas.SetTop(rect, yamato.Position.Top);
-            this.canvas.Children.Add(rect);
+            Canvas.SetLeft(ell, yamato.Position.Left);
+            Canvas.SetTop(ell, yamato.Position.Top);
+            this.canvas.Children.Add(ell);
         }
 
         private void DrawProjectile(GameObject projectile)
@@ -202,19 +211,26 @@ namespace TheBatmanGame.Renderers
             this.canvas.Children.Add(image);
         }
 
-        private void DrawEnemy(GameObject enemy)
-        {
-            var ell = new Ellipse
-            {
-                Width = enemy.Bounds.Width,
-                Height = enemy.Bounds.Height,
-                Fill = Brushes.Brown,
-                StrokeThickness = 2
-            };
+        static Random rand = new Random();
 
-            Canvas.SetLeft(ell, enemy.Position.Left);
-            Canvas.SetTop(ell, enemy.Position.Top);
-            this.canvas.Children.Add(ell);
+        private void DrawEnemy(GameObject enemy)
+        
+        {
+            var enemyPath = enemyImageSources[rand.Next(enemyImageSources.Length)];
+            Image image = new Image();
+            BitmapImage batwingImageSource = new BitmapImage();
+            batwingImageSource.BeginInit();
+            batwingImageSource.UriSource = new Uri(enemyPath, UriKind.Relative);
+            batwingImageSource.EndInit();
+
+            image.Source = batwingImageSource;
+            image.Width = enemy.Bounds.Width;
+            image.Height = enemy.Bounds.Height;
+
+            Canvas.SetLeft(image, enemy.Position.Left);
+            Canvas.SetTop(image, enemy.Position.Top);
+            this.canvas.Children.Add(image);
+        
         }
     }
 }
