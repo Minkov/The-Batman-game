@@ -1,0 +1,11 @@
+﻿<Window x:Class="TheBatmanGame.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" 
+        Height="600" 
+        Width="1000">
+    <Canvas Name="GameCanvas"
+            Background="Pink">
+
+    </Canvas>
+</Window>

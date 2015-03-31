@@ -1,0 +1,13 @@
+﻿<Window x:Class="TheBatmanGame.Windows.InitialGameWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="InitialGameWindow" Height="300" Width="300"
+        WindowState="Normal"
+        WindowStyle="None"
+        MouseLeftButtonDown="OnWindowMouseLeftButtonDown">
+    <StackPanel>
+        <Button Click="OnNewGameButtonClick">New Game</Button>
+        <Button Click="OnShowHighScoresButtonClick">Highscores</Button>
+        <Button Click="OnExitButtonClick">Exit</Button>
+    </StackPanel>
+</Window>
