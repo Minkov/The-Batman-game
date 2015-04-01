@@ -32,7 +32,7 @@ namespace TheBatmanGame.Renderers
         {
             var dir = new DirectoryInfo("./Images/Enemies");
             enemyImageSources = dir.GetFiles()
-                                   .Select(file => "/Images/Enemies/" + file.Name)
+                                   .Select(file=>file.FullName)
                                    .ToArray();
         }
 
@@ -149,8 +149,22 @@ namespace TheBatmanGame.Renderers
 
         private void DrawEnemy(GameObject enemy)
         {
+            
+            //var image = new Rectangle()
+            //{
+            //    Fill = Brushes.Black,
+            //    Stroke = Brushes.Blue,
+            //    StrokeThickness = 3,
+            //    Width = enemy.Bounds.Width,
+            //    Height = enemy.Bounds.Height
+            //};
+            //Canvas.SetTop(image, enemy.Position.Top);
+            //Canvas.SetLeft(image, enemy.Position.Left);
+
             var enemyPath = enemyImageSources[rand.Next(enemyImageSources.Length)];
+          
             var image = CreateImageForCanvas(enemyPath, enemy.Position, enemy.Bounds);
+
             this.canvas.Children.Add(image);
         }
 
@@ -159,7 +173,7 @@ namespace TheBatmanGame.Renderers
             Image image = new Image();
             BitmapImage bitmap = new BitmapImage();
             bitmap.BeginInit();
-            bitmap.UriSource = new Uri(path, UriKind.Relative);
+            bitmap.UriSource = new Uri(path, UriKind.RelativeOrAbsolute);
             bitmap.EndInit();
 
             image.Source = bitmap;

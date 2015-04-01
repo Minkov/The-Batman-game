@@ -15,7 +15,7 @@ namespace TheBatmanGame.Engines
     {
         const int BatwingSizeHeight = 100;
         const int BatwingSizeWidth = 100;
-        const int BatmanSpeed = 15;
+        const int BatmanSpeed = 25;
         const int TimerTickIntervalInMilliseconds = 100;
         const int GenerateEnemyChange = 90;
         const int ScoreForKill = 45;

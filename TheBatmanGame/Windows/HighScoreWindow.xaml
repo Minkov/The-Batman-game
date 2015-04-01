@@ -14,13 +14,21 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="65"/>
+                <RowDefinition Height="65"/>
                 <RowDefinition />
             </Grid.RowDefinitions>
             <TextBlock Style="{StaticResource TextBlockHeader}">
                 The highscore board
             </TextBlock>
+            <Button HorizontalAlignment="Left"
+                    Grid.Row="1"
+                    Content="Back"
+                    Width="150"
+                    Height="45"
+                    Margin="15 0 0 0"
+                    Click="OnBackButtonClick"/>            
             <UniformGrid Name="PanelScores"
-                         Grid.Row="1"
+                         Grid.Row="2"
                          Columns="1"></UniformGrid>
         </Grid>
     </Border>

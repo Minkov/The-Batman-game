@@ -11,10 +11,10 @@ false
 DEBUG;TRACE
 C:\Dropbox\Workspace\C#\TheBatmanGame\TheBatmanGame\App.xaml
 4706355487
-1-398442680
+1-2131526051
 30-222963829
 12-1401562060
 Windows\GameOverWindow.xaml;Windows\GameWindow.xaml;Windows\HighScoreWindow.xaml;Windows\InitialGameWindow.xaml;
 
-False
+True
 

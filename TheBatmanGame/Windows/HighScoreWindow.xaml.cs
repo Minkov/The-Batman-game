@@ -38,6 +38,12 @@ namespace TheBatmanGame.Windows
             }
         }
 
+        public void OnBackButtonClick(object sender, RoutedEventArgs e)
+        {
+            new InitialGameWindow().Show();
+            this.Close();
+        }
+
         public void OnWindowMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();

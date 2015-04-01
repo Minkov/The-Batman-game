@@ -25,8 +25,7 @@ namespace TheBatmanGame.Windows
             InitializeComponent();
         }
 
-        public GameOverWindow(int highscore)
-            : this()
+        public GameOverWindow(int highscore) : this()
         {
             this.Highscore = highscore;
             this.TextBlockHighScore.Text = string.Format("Your highscore is {0}", this.Highscore);
@@ -41,7 +40,9 @@ namespace TheBatmanGame.Windows
 
         private void OnSaveHighscoreButtonClick(object sender, RoutedEventArgs e)
         {
-            XmlHighscoreStorage.Instance.Add(new PlayerHighscore("Test", this.Highscore));
+            XmlHighscoreStorage.Instance.Add(new PlayerHighscore(this.TextBoxNickname.Text, this.Highscore));
+            new InitialGameWindow().Show();
+            this.Close();
         }
     }
 }

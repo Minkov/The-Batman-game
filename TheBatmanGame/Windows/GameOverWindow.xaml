@@ -9,8 +9,7 @@
     <Border CornerRadius="5"
             BorderBrush="Purple"
             BorderThickness="5"
-            Background="White"
-            >
+            Background="White">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="65"/>
@@ -24,10 +23,27 @@
                           Name="TextBlockHighScore">
                 </TextBlock>
             </StackPanel>
-            <StackPanel Grid.Row="1">
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0"
+                           Grid.Column="0"
+                           Text="Nickname: " />
+                <TextBox Name="TextBoxNickname"
+                         Grid.Row="0"
+                         Grid.Column="1" />
                 <Button Content="Save"
-                        Click="OnSaveHighscoreButtonClick"></Button>
-            </StackPanel>
+                        Click="OnSaveHighscoreButtonClick"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"></Button>
+            </Grid>
         </Grid>
     </Border>
 </Window>

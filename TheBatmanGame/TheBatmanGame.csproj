@@ -136,7 +136,7 @@
     <Resource Include="Images\batwing.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Images\enemies\enemy.png">
+    <Content Include="Images\Enemies\enemy.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
