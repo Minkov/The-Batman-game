@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -17,30 +16,32 @@ using TheBatmanGame.Data;
 namespace TheBatmanGame.Windows
 {
     /// <summary>
-    /// Interaction logic for HighScoreWindow.xaml
+    /// Interaction logic for GameOverWindow.xaml
     /// </summary>
-    public partial class HighScoreWindow : Window
+    public partial class GameOverWindow : Window
     {
-        public HighScoreWindow()
+        public GameOverWindow()
         {
             InitializeComponent();
-            var scores = XmlHighscoreStorage.Instance.Highscores;
-            foreach (var score in scores)
-            {
-                this.PanelScores.Children.Add(new UniformGrid
-                {
-                    Rows = 1,
-                    Children = {
-                        new TextBlock { Text = score.Nickname },
-                        new TextBlock { Text = score.Score.ToString() }
-                    }
-                });
-            }
+        }
+
+        public GameOverWindow(int highscore)
+            : this()
+        {
+            this.Highscore = highscore;
+            this.TextBlockHighScore.Text = string.Format("Your highscore is {0}", this.Highscore);
         }
 
         public void OnWindowMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
+        }
+
+        public int Highscore { get; set; }
+
+        private void OnSaveHighscoreButtonClick(object sender, RoutedEventArgs e)
+        {
+            XmlHighscoreStorage.Instance.Add(new PlayerHighscore("Test", this.Highscore));
         }
     }
 }

@@ -36,9 +36,9 @@
     </TypeIdentifier>
   </Class>
   <Class Name="TheBatmanGame.Renderers.WpfGameRenderer" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="11" Y="1.5" Width="1.5" />
+    <Position X="9.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAQBAABEAAAgAAAAAAABICAABAAAAEAAAACABAAAA=</HashCode>
+      <HashCode>AAAARJABBEAAAgAAAgAAABICAABAAAAEAEAACABAAAA=</HashCode>
       <FileName>Renderers\WpfGameRenderer.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
@@ -53,13 +53,13 @@
   <Class Name="TheBatmanGame.GameObjects.Factories.EnemiesFactory" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="9.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAABBAAAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAIAAAAAAAABBAAAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
       <FileName>GameObjects\Factories\EnemiesFactory.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="TheBatmanGame.GameObjects.Factories.ProjectileFactory" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="9.25" Y="1.5" Width="1.5" />
+    <Position X="7.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AACBAIAAAAAAAABAAAAAAAAAAAAAEAgAAAAAAAAQAAA=</HashCode>
       <FileName>GameObjects\Factories\ProjectileFactory.cs</FileName>
@@ -67,7 +67,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="TheBatmanGame.Misc.KeyDownEventArgs" Collapsed="true">
-    <Position X="7.5" Y="1.5" Width="1.5" />
+    <Position X="12.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Misc\KeyDownEventArgs.cs</FileName>
@@ -80,38 +80,66 @@
       <FileName>Misc\CollisionDetector.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="TheBatmanGame.Windows.GameOverWindow" Collapsed="true">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Windows\GameOverWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheBatmanGame.Windows.GameWindow" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>Windows\GameWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheBatmanGame.Windows.HighScoreWindow" Collapsed="true">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Windows\HighScoreWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheBatmanGame.Windows.InitialGameWindow" Collapsed="true">
+    <Position X="11" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAACAAAAAEAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Windows\InitialGameWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Struct Name="TheBatmanGame.GameObjects.Position" Collapsed="true">
-    <Position X="7.5" Y="2.75" Width="1.5" />
+    <Position X="7.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACAAAAAAAAAA=</HashCode>
       <FileName>GameObjects\Position.cs</FileName>
     </TypeIdentifier>
   </Struct>
   <Struct Name="TheBatmanGame.GameObjects.Size" Collapsed="true">
-    <Position X="9.25" Y="2.75" Width="1.5" />
+    <Position X="9.25" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAABAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GameObjects\Size.cs</FileName>
     </TypeIdentifier>
   </Struct>
   <Interface Name="TheBatmanGame.Renderers.IGameRenderer" Collapsed="true">
-    <Position X="9.25" Y="4" Width="1.5" />
+    <Position X="9.25" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAABAAAEAAAgAAAAAAABAAAABAAAAEAAAAAABAAAA=</HashCode>
       <FileName>Renderers\IGameRenderer.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="TheBatmanGame.GameObjects.Factories.IGameObjectFactory" Collapsed="true">
-    <Position X="7.5" Y="4" Width="1.5" />
+    <Position X="7.5" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GameObjects\Factories\IGameObjectFactory.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Enum Name="TheBatmanGame.Misc.GameCommand" Collapsed="true">
-    <Position X="7.5" Y="5" Width="1.5" />
+    <Position X="7.5" Y="6" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAEAAAAQAAAAAAAAAA=</HashCode>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAEAAAIQAAAAAAAAAA=</HashCode>
       <FileName>Misc\KeyDownEventArgs.cs</FileName>
     </TypeIdentifier>
   </Enum>

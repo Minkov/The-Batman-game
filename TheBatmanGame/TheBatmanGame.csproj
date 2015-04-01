@@ -53,6 +53,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Data\IHighscoreStorage.cs" />
+    <Compile Include="Data\PlayerHighscore.cs" />
+    <Compile Include="Data\XmlHighScoreStorage.cs" />
     <Compile Include="GameObjects\Factories\EnemiesFactory.cs" />
     <Compile Include="GameObjects\Factories\IGameObjectFactory.cs" />
     <Compile Include="GameObjects\Factories\ProjectileFactory.cs" />
@@ -61,6 +64,9 @@
     <Compile Include="Misc\KeyDownEventArgs.cs" />
     <Compile Include="Renderers\IGameRenderer.cs" />
     <Compile Include="Renderers\WpfGameRenderer.cs" />
+    <Compile Include="Windows\GameOverWindow.xaml.cs">
+      <DependentUpon>GameOverWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\GameWindow.xaml.cs">
       <DependentUpon>GameWindow.xaml</DependentUpon>
     </Compile>
@@ -70,10 +76,6 @@
     <Compile Include="Windows\InitialGameWindow.xaml.cs">
       <DependentUpon>InitialGameWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -85,10 +87,10 @@
     <Compile Include="GameObjects\Position.cs" />
     <Compile Include="GameObjects\ProjectileGameObject.cs" />
     <Compile Include="GameObjects\Size.cs" />
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
+    <Page Include="Windows\GameOverWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\GameWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -137,9 +139,6 @@
     <Content Include="Images\enemies\enemy.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="dragon1.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

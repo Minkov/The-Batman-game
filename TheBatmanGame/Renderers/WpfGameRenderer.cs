@@ -13,6 +13,7 @@ using System.Windows.Shapes;
 using TheBatmanGame.Engines;
 using TheBatmanGame.GameObjects;
 using TheBatmanGame.Misc;
+using TheBatmanGame.Windows;
 
 namespace TheBatmanGame.Renderers
 {
@@ -20,11 +21,12 @@ namespace TheBatmanGame.Renderers
     {
         private const string BatwingImagePath = "/Images/batwing.png";
 
+        public event EventHandler<KeyDownEventArgs> UIActionHappened;
+        
         private static string[] enemyImageSources;
+        static Random rand = new Random();
 
         private Canvas canvas;
-
-        public event EventHandler<KeyDownEventArgs> UIActionHappened;
 
         static WpfGameRenderer()
         {
@@ -40,32 +42,6 @@ namespace TheBatmanGame.Renderers
             this.ParentWindow.KeyDown += HandleKeyDown;
         }
 
-        private void HandleKeyDown(object sender, KeyEventArgs args)
-        {
-            var key = args.Key;
-            GameCommand command;
-            switch (key)
-            {
-                case Key.Up:
-                    command = GameCommand.MoveUp;
-                    break;
-                case Key.Down:
-                    command = GameCommand.MoveDown;
-                    break;
-                case Key.Left:
-                    command = GameCommand.MoveLeft;
-                    break;
-                case Key.Right:
-                    command = GameCommand.MoveRight;
-                    break;
-                default:
-                    command = GameCommand.Fire;
-                    break;
-            }
-
-            this.UIActionHappened(this, new KeyDownEventArgs(command));
-        }
-
         public bool IsInBounds(Position position)
         {
             return 0 <= position.Left && position.Left <= this.ScreenWidth &&
@@ -74,38 +50,8 @@ namespace TheBatmanGame.Renderers
 
         public void ShowEndGameScreen(int highscore)
         {
-            var parent = this.canvas.Parent;
-            while (!(parent is Window))
-            {
-                parent = VisualTreeHelper.GetParent(parent);
-            }
-
-            var stackPanel = new StackPanel();
-            var window = new Window
-            {
-                Content = stackPanel
-            };
-
-            var btn = new Button
-            {
-                Content = "Play again"
-            };
-
-            var tb = new TextBlock()
-            {
-                Text = string.Format("You highscore is {0}", highscore)
-            };
-
-            stackPanel.Children.Add(tb);
-            stackPanel.Children.Add(btn);
-
-            btn.Click += (snd, ev) =>
-            {
-                new MainWindow().Show();
-                window.Close();
-            };
-            window.Show();
-            (parent as Window).Close();
+            new GameOverWindow(highscore).Show();
+            this.ParentWindow.Close();
         }
 
         public int ScreenWidth
@@ -201,8 +147,6 @@ namespace TheBatmanGame.Renderers
             this.canvas.Children.Add(image);
         }
 
-        static Random rand = new Random();
-
         private void DrawEnemy(GameObject enemy)
         {
             var enemyPath = enemyImageSources[rand.Next(enemyImageSources.Length)];
@@ -225,6 +169,32 @@ namespace TheBatmanGame.Renderers
             Canvas.SetLeft(image, position.Left);
             Canvas.SetTop(image, position.Top);
             return image;
+        }
+
+        private void HandleKeyDown(object sender, KeyEventArgs args)
+        {
+            var key = args.Key;
+            GameCommand command;
+            switch (key)
+            {
+                case Key.Up:
+                    command = GameCommand.MoveUp;
+                    break;
+                case Key.Down:
+                    command = GameCommand.MoveDown;
+                    break;
+                case Key.Left:
+                    command = GameCommand.MoveLeft;
+                    break;
+                case Key.Right:
+                    command = GameCommand.MoveRight;
+                    break;
+                default:
+                    command = GameCommand.Fire;
+                    break;
+            }
+
+            this.UIActionHappened(this, new KeyDownEventArgs(command));
         }
     }
 }

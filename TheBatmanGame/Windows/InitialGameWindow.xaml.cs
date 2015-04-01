@@ -29,7 +29,7 @@ namespace TheBatmanGame.Windows
             new GameWindow().Show();
             this.Close();
         }
-        
+
         public void OnShowHighScoresButtonClick(object sender, RoutedEventArgs e)
         {
             new HighScoreWindow().Show();

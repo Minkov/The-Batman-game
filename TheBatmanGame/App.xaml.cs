@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using TheBatmanGame.Data;
 using TheBatmanGame.Windows;
 
 namespace TheBatmanGame
@@ -14,5 +15,11 @@ namespace TheBatmanGame
     /// </summary>
     public partial class App : Application
     {
+
+        protected override void OnExit(ExitEventArgs e)
+        {
+            XmlHighscoreStorage.Instance.Save();
+            base.OnExit(e);
+        }
     }
 }

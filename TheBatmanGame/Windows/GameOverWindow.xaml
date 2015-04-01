@@ -1,0 +1,33 @@
+﻿<Window x:Class="TheBatmanGame.Windows.GameOverWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="InitialGameWindow" Height="300" Width="300"
+        WindowState="Normal"
+        WindowStyle="None"
+        	  AllowsTransparency="True" Background="Transparent"
+        MouseLeftButtonDown="OnWindowMouseLeftButtonDown">
+    <Border CornerRadius="5"
+            BorderBrush="Purple"
+            BorderThickness="5"
+            Background="White"
+            >
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="65"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <StackPanel>
+                <TextBlock Style="{StaticResource TextBlockHeader}">
+                    Game over
+                </TextBlock>
+                <TextBlock Style="{StaticResource TextBlockBigHeader}"
+                          Name="TextBlockHighScore">
+                </TextBlock>
+            </StackPanel>
+            <StackPanel Grid.Row="1">
+                <Button Content="Save"
+                        Click="OnSaveHighscoreButtonClick"></Button>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>
