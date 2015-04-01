@@ -128,12 +128,12 @@ namespace TheBatmanGame.Renderers
 
         private void DrawProjectile(GameObject projectile)
         {
-            var rect = new Rectangle
+            var rect = new Border
             {
                 Width = projectile.Bounds.Width,
                 Height = projectile.Bounds.Height,
-                Fill = Brushes.White,
-                StrokeThickness = 2
+                Background = Brushes.White,
+                CornerRadius = new CornerRadius(2, 5, 5, 2)
             };
 
             Canvas.SetLeft(rect, projectile.Position.Left);
