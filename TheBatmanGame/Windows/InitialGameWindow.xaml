@@ -4,10 +4,32 @@
         Title="InitialGameWindow" Height="300" Width="300"
         WindowState="Normal"
         WindowStyle="None"
+        	  AllowsTransparency="True" Background="Transparent"
         MouseLeftButtonDown="OnWindowMouseLeftButtonDown">
-    <StackPanel>
-        <Button Click="OnNewGameButtonClick">New Game</Button>
-        <Button Click="OnShowHighScoresButtonClick">Highscores</Button>
-        <Button Click="OnExitButtonClick">Exit</Button>
-    </StackPanel>
+    <Border CornerRadius="5"
+            BorderBrush="Purple"
+            BorderThickness="5"
+            Background="White"
+            >
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="65"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <StackPanel>
+                <TextBlock Style="{StaticResource TextBlockHeader}">
+                    Welcome to the
+                </TextBlock>
+                <TextBlock Style="{StaticResource TextBlockBigHeader}">
+                    Batwing Game
+                </TextBlock>
+            </StackPanel>
+            <UniformGrid Columns="1"
+                         Grid.Row="1">
+                <Button Click="OnNewGameButtonClick">New Game</Button>
+                <Button Click="OnShowHighScoresButtonClick">Highscores</Button>
+                <Button Click="OnExitButtonClick">Exit</Button>
+            </UniformGrid>
+        </Grid>
+    </Border>
 </Window>

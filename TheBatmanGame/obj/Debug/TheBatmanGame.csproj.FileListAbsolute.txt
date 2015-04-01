@@ -48,6 +48,7 @@ C:\Users\Doncho Minkov\Desktop\the-batman-game\TheBatmanGame\obj\Debug\TheBatman
 C:\Users\Doncho Minkov\Desktop\the-batman-game\TheBatmanGame\obj\Debug\TheBatmanGame.g.resources
 C:\Users\Doncho Minkov\Desktop\the-batman-game\TheBatmanGame\obj\Debug\TheBatmanGame.Properties.Resources.resources
 C:\Users\Doncho Minkov\Desktop\the-batman-game\TheBatmanGame\obj\Debug\TheBatmanGame.csproj.GenerateResource.Cache
+C:\Users\Doncho Minkov\Desktop\the-batman-game\TheBatmanGame\obj\Debug\TheBatmanGame_MarkupCompile.lref
+C:\Users\Doncho Minkov\Desktop\the-batman-game\TheBatmanGame\obj\Debug\App.baml
+C:\Users\Doncho Minkov\Desktop\the-batman-game\TheBatmanGame\bin\Debug\Images\enemies\enemy.png
 C:\Users\Doncho Minkov\Desktop\the-batman-game\TheBatmanGame\obj\Debug\TheBatmanGame_Content.g.cs
-C:\Users\Doncho Minkov\Desktop\the-batman-game\TheBatmanGame\bin\Debug\Images\enemies\dragon1.gif
-C:\Users\Doncho Minkov\Desktop\the-batman-game\TheBatmanGame\bin\Debug\Images\enemies\mutalisk.jpg

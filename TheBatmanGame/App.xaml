@@ -4,5 +4,24 @@
              xmlns:windows="clr-namespace:TheBatmanGame.Windows"
              StartupUri="Windows\InitialGameWindow.xaml">
     <Application.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="Purple"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="21"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="2"/>
+        </Style>
+        <Style x:Key="TextBlockHeader" TargetType="TextBlock">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="TextWrapping" Value="WrapWithOverflow"/>
+        </Style>
+        <Style x:Key="TextBlockBigHeader" 
+               TargetType="TextBlock"
+               BasedOn="{StaticResource TextBlockHeader}">
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+        </Style>
     </Application.Resources>
 </Application>

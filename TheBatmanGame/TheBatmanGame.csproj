@@ -134,10 +134,7 @@
     <Resource Include="Images\batwing.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Images\enemies\dragon1.gif">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Images\enemies\mutalisk.jpg">
+    <Content Include="Images\enemies\enemy.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

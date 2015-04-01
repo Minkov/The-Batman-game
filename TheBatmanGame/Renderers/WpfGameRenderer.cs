@@ -16,10 +16,12 @@ using TheBatmanGame.Misc;
 
 namespace TheBatmanGame.Renderers
 {
-    public class WpfGameRenderer :
-        IGameRenderer
+    public class WpfGameRenderer : IGameRenderer
     {
+        private const string BatwingImagePath = "/Images/batwing.png";
+
         private static string[] enemyImageSources;
+
         private Canvas canvas;
 
         public event EventHandler<KeyDownEventArgs> UIActionHappened;
@@ -30,7 +32,6 @@ namespace TheBatmanGame.Renderers
             enemyImageSources = dir.GetFiles()
                                    .Select(file => "/Images/Enemies/" + file.Name)
                                    .ToArray();
-            var b = 5;
         }
 
         public WpfGameRenderer(Canvas canvas)
@@ -38,7 +39,7 @@ namespace TheBatmanGame.Renderers
             this.canvas = canvas;
             this.ParentWindow.KeyDown += HandleKeyDown;
         }
- 
+
         private void HandleKeyDown(object sender, KeyEventArgs args)
         {
             var key = args.Key;
@@ -196,41 +197,34 @@ namespace TheBatmanGame.Renderers
 
         private void DrawBatwing(GameObject batwing)
         {
-            Image image = new Image();
-            BitmapImage batwingImageSource = new BitmapImage();
-            batwingImageSource.BeginInit();
-            batwingImageSource.UriSource = new Uri("/Images/batwing.png", UriKind.Relative);
-            batwingImageSource.EndInit();
-
-            image.Source = batwingImageSource;
-            image.Width = batwing.Bounds.Width;
-            image.Height = batwing.Bounds.Height;
-
-            Canvas.SetLeft(image, batwing.Position.Left);
-            Canvas.SetTop(image, batwing.Position.Top);
+            var image = this.CreateImageForCanvas(BatwingImagePath, batwing.Position, batwing.Bounds);
             this.canvas.Children.Add(image);
         }
 
         static Random rand = new Random();
 
         private void DrawEnemy(GameObject enemy)
-        
         {
             var enemyPath = enemyImageSources[rand.Next(enemyImageSources.Length)];
-            Image image = new Image();
-            BitmapImage batwingImageSource = new BitmapImage();
-            batwingImageSource.BeginInit();
-            batwingImageSource.UriSource = new Uri(enemyPath, UriKind.Relative);
-            batwingImageSource.EndInit();
-
-            image.Source = batwingImageSource;
-            image.Width = enemy.Bounds.Width;
-            image.Height = enemy.Bounds.Height;
-
-            Canvas.SetLeft(image, enemy.Position.Left);
-            Canvas.SetTop(image, enemy.Position.Top);
+            var image = CreateImageForCanvas(enemyPath, enemy.Position, enemy.Bounds);
             this.canvas.Children.Add(image);
-        
+        }
+
+        private Image CreateImageForCanvas(string path, Position position, TheBatmanGame.GameObjects.Size bounds)
+        {
+            Image image = new Image();
+            BitmapImage bitmap = new BitmapImage();
+            bitmap.BeginInit();
+            bitmap.UriSource = new Uri(path, UriKind.Relative);
+            bitmap.EndInit();
+
+            image.Source = bitmap;
+            image.Width = bounds.Width;
+            image.Height = bounds.Height;
+
+            Canvas.SetLeft(image, position.Left);
+            Canvas.SetTop(image, position.Top);
+            return image;
         }
     }
 }
