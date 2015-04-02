@@ -12,7 +12,7 @@ using TheBatmanGame.Extensions;
 
 namespace TheBatmanGame.Engines
 {
-    public class GameEngine
+    public class GameEngine : IGameEngine
     {
         private const int BatwingSizeHeight = 100;
         private const int BatwingSizeWidth = 100;
@@ -29,19 +29,19 @@ namespace TheBatmanGame.Engines
         private IGameObjectFactory enemiesFactory;
         private DispatcherTimer timer;
 
-        private int HighScore { get; set; }
+        public int HighScore { get; private set; }
 
         static Random rand = new Random();
         
-        private BatwingGameObject Batwing { get; set; }
+        public BatwingGameObject Batwing { get; private set; }
 
-        private List<GameObject> Projectiles { get; set; }
+        public List<GameObject> Projectiles { get; private set; }
 
-        private List<GameObject> Enemies { get; set; }
+        public List<GameObject> Enemies { get; private set; }
 
-        public List<GameObject> GameObjects { get; set; }
+        public List<GameObject> GameObjects { get; private set; }
 
-        public CollisionDetector CollisionDetector { get; set; }
+        public ICollisionDetector CollisionDetector { get; private set; }
 
         public GameEngine(IGameRenderer renderer)
         {
@@ -57,7 +57,7 @@ namespace TheBatmanGame.Engines
 
             this.GameObjects = new List<GameObject>();
 
-            this.CollisionDetector = new CollisionDetector();
+            this.CollisionDetector = new SimpleCollisionDetector();
         }
 
         private void HandleUIActionHappened(object sender, KeyDownEventArgs e)

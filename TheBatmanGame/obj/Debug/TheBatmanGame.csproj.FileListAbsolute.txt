@@ -33,11 +33,9 @@ C:\Users\Doncho Minkov\Desktop\the-batman-game\TheBatmanGame\obj\Debug\TheBatman
 C:\Users\Doncho Minkov\Desktop\the-batman-game\TheBatmanGame\bin\Debug\TheBatmanGame.exe
 C:\Users\Doncho Minkov\Desktop\the-batman-game\TheBatmanGame\bin\Debug\TheBatmanGame.pdb
 C:\Users\Doncho Minkov\Desktop\the-batman-game\TheBatmanGame\obj\Debug\TheBatmanGame.csprojResolveAssemblyReference.cache
-C:\Users\Doncho Minkov\Desktop\the-batman-game\TheBatmanGame\obj\Debug\MainWindow.baml
 C:\Users\Doncho Minkov\Desktop\the-batman-game\TheBatmanGame\obj\Debug\Windows\GameWindow.baml
 C:\Users\Doncho Minkov\Desktop\the-batman-game\TheBatmanGame\obj\Debug\Windows\HighScoreWindow.baml
 C:\Users\Doncho Minkov\Desktop\the-batman-game\TheBatmanGame\obj\Debug\Windows\InitialGameWindow.baml
-C:\Users\Doncho Minkov\Desktop\the-batman-game\TheBatmanGame\obj\Debug\MainWindow.g.cs
 C:\Users\Doncho Minkov\Desktop\the-batman-game\TheBatmanGame\obj\Debug\Windows\GameWindow.g.cs
 C:\Users\Doncho Minkov\Desktop\the-batman-game\TheBatmanGame\obj\Debug\Windows\HighScoreWindow.g.cs
 C:\Users\Doncho Minkov\Desktop\the-batman-game\TheBatmanGame\obj\Debug\Windows\InitialGameWindow.g.cs
@@ -79,3 +77,5 @@ C:\Users\Doncho Minkov\Desktop\batman\TheBatmanGame\obj\Debug\App.baml
 C:\Users\Doncho Minkov\Desktop\batman\TheBatmanGame\obj\Debug\TheBatmanGame.g.resources
 C:\Users\Doncho Minkov\Desktop\batman\TheBatmanGame\obj\Debug\TheBatmanGame.Properties.Resources.resources
 C:\Users\Doncho Minkov\Desktop\batman\TheBatmanGame\obj\Debug\TheBatmanGame.csproj.GenerateResource.Cache
+C:\Users\Doncho Minkov\Desktop\the-batman-game\TheBatmanGame\obj\Debug\Windows\GameOverWindow.baml
+C:\Users\Doncho Minkov\Desktop\the-batman-game\TheBatmanGame\obj\Debug\Windows\GameOverWindow.g.cs

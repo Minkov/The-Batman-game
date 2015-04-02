@@ -31,6 +31,6 @@ namespace TheBatmanGame.Windows
             this.Engine.StartGame();
         }
 
-        public GameEngine Engine { get; set; }
+        public IGameEngine Engine { get; set; }
     }
 }

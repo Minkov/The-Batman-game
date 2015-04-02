@@ -56,12 +56,14 @@
     <Compile Include="Data\IHighscoreStorage.cs" />
     <Compile Include="Data\PlayerHighscore.cs" />
     <Compile Include="Data\XmlHighScoreStorage.cs" />
+    <Compile Include="Engines\IGameEngine.cs" />
     <Compile Include="Extensions\CollectionExtensions.cs" />
     <Compile Include="GameObjects\Factories\EnemiesFactory.cs" />
     <Compile Include="GameObjects\Factories\IGameObjectFactory.cs" />
     <Compile Include="GameObjects\Factories\ProjectileFactory.cs" />
     <Compile Include="GameObjects\YamatoGameObject.cs" />
-    <Compile Include="Misc\CollisionDetector.cs" />
+    <Compile Include="Misc\SimpleCollisionDetector.cs" />
+    <Compile Include="Misc\ICollisionDetector.cs" />
     <Compile Include="Misc\KeyDownEventArgs.cs" />
     <Compile Include="Renderers\IGameRenderer.cs" />
     <Compile Include="Renderers\WpfGameRenderer.cs" />
