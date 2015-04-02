@@ -56,3 +56,26 @@ C:\Dropbox\Workspace\C#\TheBatmanGame\TheBatmanGame\obj\Debug\Windows\GameOverWi
 C:\Dropbox\Workspace\C#\TheBatmanGame\TheBatmanGame\obj\Debug\TheBatmanGame_Content.g.cs
 C:\Dropbox\Workspace\C#\TheBatmanGame\TheBatmanGame\obj\Debug\TheBatmanGame_MarkupCompile.lref
 C:\Dropbox\Workspace\C#\TheBatmanGame\TheBatmanGame\obj\Debug\App.baml
+C:\Users\Doncho Minkov\Desktop\batman\TheBatmanGame\bin\Debug\TheBatmanGame.exe.config
+C:\Users\Doncho Minkov\Desktop\batman\TheBatmanGame\obj\Debug\TheBatmanGame.exe
+C:\Users\Doncho Minkov\Desktop\batman\TheBatmanGame\obj\Debug\TheBatmanGame.pdb
+C:\Users\Doncho Minkov\Desktop\batman\TheBatmanGame\bin\Debug\Images\Enemies\enemy.png
+C:\Users\Doncho Minkov\Desktop\batman\TheBatmanGame\bin\Debug\TheBatmanGame.exe
+C:\Users\Doncho Minkov\Desktop\batman\TheBatmanGame\bin\Debug\TheBatmanGame.pdb
+C:\Users\Doncho Minkov\Desktop\batman\TheBatmanGame\obj\Debug\TheBatmanGame.csprojResolveAssemblyReference.cache
+C:\Users\Doncho Minkov\Desktop\batman\TheBatmanGame\obj\Debug\Windows\GameOverWindow.baml
+C:\Users\Doncho Minkov\Desktop\batman\TheBatmanGame\obj\Debug\Windows\GameWindow.baml
+C:\Users\Doncho Minkov\Desktop\batman\TheBatmanGame\obj\Debug\Windows\HighScoreWindow.baml
+C:\Users\Doncho Minkov\Desktop\batman\TheBatmanGame\obj\Debug\Windows\InitialGameWindow.baml
+C:\Users\Doncho Minkov\Desktop\batman\TheBatmanGame\obj\Debug\Windows\GameOverWindow.g.cs
+C:\Users\Doncho Minkov\Desktop\batman\TheBatmanGame\obj\Debug\Windows\GameWindow.g.cs
+C:\Users\Doncho Minkov\Desktop\batman\TheBatmanGame\obj\Debug\Windows\HighScoreWindow.g.cs
+C:\Users\Doncho Minkov\Desktop\batman\TheBatmanGame\obj\Debug\Windows\InitialGameWindow.g.cs
+C:\Users\Doncho Minkov\Desktop\batman\TheBatmanGame\obj\Debug\App.g.cs
+C:\Users\Doncho Minkov\Desktop\batman\TheBatmanGame\obj\Debug\TheBatmanGame_Content.g.cs
+C:\Users\Doncho Minkov\Desktop\batman\TheBatmanGame\obj\Debug\TheBatmanGame_MarkupCompile.cache
+C:\Users\Doncho Minkov\Desktop\batman\TheBatmanGame\obj\Debug\TheBatmanGame_MarkupCompile.lref
+C:\Users\Doncho Minkov\Desktop\batman\TheBatmanGame\obj\Debug\App.baml
+C:\Users\Doncho Minkov\Desktop\batman\TheBatmanGame\obj\Debug\TheBatmanGame.g.resources
+C:\Users\Doncho Minkov\Desktop\batman\TheBatmanGame\obj\Debug\TheBatmanGame.Properties.Resources.resources
+C:\Users\Doncho Minkov\Desktop\batman\TheBatmanGame\obj\Debug\TheBatmanGame.csproj.GenerateResource.Cache

@@ -56,6 +56,7 @@
     <Compile Include="Data\IHighscoreStorage.cs" />
     <Compile Include="Data\PlayerHighscore.cs" />
     <Compile Include="Data\XmlHighScoreStorage.cs" />
+    <Compile Include="Extensions\CollectionExtensions.cs" />
     <Compile Include="GameObjects\Factories\EnemiesFactory.cs" />
     <Compile Include="GameObjects\Factories\IGameObjectFactory.cs" />
     <Compile Include="GameObjects\Factories\ProjectileFactory.cs" />
@@ -139,6 +140,7 @@
     <Content Include="Images\Enemies\enemy.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Images\Projectiles\yamato.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

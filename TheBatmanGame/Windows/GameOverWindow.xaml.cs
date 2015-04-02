@@ -31,6 +31,7 @@ namespace TheBatmanGame.Windows
             this.TextBlockHighScore.Text = string.Format("Your highscore is {0}", this.Highscore);
         }
 
+
         public void OnWindowMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
@@ -41,6 +42,12 @@ namespace TheBatmanGame.Windows
         private void OnSaveHighscoreButtonClick(object sender, RoutedEventArgs e)
         {
             XmlHighscoreStorage.Instance.Add(new PlayerHighscore(this.TextBoxNickname.Text, this.Highscore));
+            new InitialGameWindow().Show();
+            this.Close();
+        }
+
+        public void OnDontSaveButtonClick(object sender, RoutedEventArgs e)
+        {
             new InitialGameWindow().Show();
             this.Close();
         }

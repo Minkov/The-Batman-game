@@ -20,7 +20,7 @@ namespace TheBatmanGame.Renderers
     public class WpfGameRenderer : IGameRenderer
     {
         private const string BatwingImagePath = "/Images/batwing.png";
-
+        private const string YamatoImagePath = "/Images/projectiles/yamato.png";
         public event EventHandler<KeyDownEventArgs> UIActionHappened;
         
         private static string[] enemyImageSources;
@@ -113,17 +113,9 @@ namespace TheBatmanGame.Renderers
 
         private void DrawYamato(GameObject yamato)
         {
-            var ell = new Ellipse
-            {
-                Width = yamato.Bounds.Width,
-                Height = yamato.Bounds.Height,
-                Fill = Brushes.Black,
-                StrokeThickness = 2
-            };
 
-            Canvas.SetLeft(ell, yamato.Position.Left);
-            Canvas.SetTop(ell, yamato.Position.Top);
-            this.canvas.Children.Add(ell);
+            var image = this.CreateImageForCanvas(YamatoImagePath, yamato.Position, yamato.Bounds);
+            this.canvas.Children.Add(image);
         }
 
         private void DrawProjectile(GameObject projectile)
@@ -132,7 +124,7 @@ namespace TheBatmanGame.Renderers
             {
                 Width = projectile.Bounds.Width,
                 Height = projectile.Bounds.Height,
-                Background = Brushes.White,
+                Background = Brushes.Orange,
                 CornerRadius = new CornerRadius(2, 5, 5, 2)
             };
 
@@ -149,22 +141,8 @@ namespace TheBatmanGame.Renderers
 
         private void DrawEnemy(GameObject enemy)
         {
-            
-            //var image = new Rectangle()
-            //{
-            //    Fill = Brushes.Black,
-            //    Stroke = Brushes.Blue,
-            //    StrokeThickness = 3,
-            //    Width = enemy.Bounds.Width,
-            //    Height = enemy.Bounds.Height
-            //};
-            //Canvas.SetTop(image, enemy.Position.Top);
-            //Canvas.SetLeft(image, enemy.Position.Left);
-
             var enemyPath = enemyImageSources[rand.Next(enemyImageSources.Length)];
-          
             var image = CreateImageForCanvas(enemyPath, enemy.Position, enemy.Bounds);
-
             this.canvas.Children.Add(image);
         }
 
