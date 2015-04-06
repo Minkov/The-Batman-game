@@ -23,6 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -58,10 +59,12 @@
     <Compile Include="Data\XmlHighScoreStorage.cs" />
     <Compile Include="Engines\IGameEngine.cs" />
     <Compile Include="Extensions\CollectionExtensions.cs" />
+    <Compile Include="GameObjects\BigEnemyGameObject.cs" />
     <Compile Include="GameObjects\Factories\EnemiesFactory.cs" />
     <Compile Include="GameObjects\Factories\IGameObjectFactory.cs" />
     <Compile Include="GameObjects\Factories\ProjectileFactory.cs" />
     <Compile Include="GameObjects\YamatoGameObject.cs" />
+    <Compile Include="Misc\ComplexCollisionDetector.cs" />
     <Compile Include="Misc\SimpleCollisionDetector.cs" />
     <Compile Include="Misc\ICollisionDetector.cs" />
     <Compile Include="Misc\KeyDownEventArgs.cs" />

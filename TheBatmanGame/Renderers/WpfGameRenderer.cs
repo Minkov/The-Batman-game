@@ -21,6 +21,7 @@ namespace TheBatmanGame.Renderers
     {
         private const string BatwingImagePath = "/Images/batwing.png";
         private const string YamatoImagePath = "/Images/projectiles/yamato.png";
+
         public event EventHandler<KeyDownEventArgs> UIActionHappened;
         
         private static string[] enemyImageSources;
@@ -32,7 +33,7 @@ namespace TheBatmanGame.Renderers
         {
             var dir = new DirectoryInfo("./Images/Enemies");
             enemyImageSources = dir.GetFiles()
-                                   .Select(file=>file.FullName)
+                                   .Select(file => file.FullName)
                                    .ToArray();
         }
 
@@ -113,7 +114,6 @@ namespace TheBatmanGame.Renderers
 
         private void DrawYamato(GameObject yamato)
         {
-
             var image = this.CreateImageForCanvas(YamatoImagePath, yamato.Position, yamato.Bounds);
             this.canvas.Children.Add(image);
         }
@@ -137,6 +137,19 @@ namespace TheBatmanGame.Renderers
         {
             var image = this.CreateImageForCanvas(BatwingImagePath, batwing.Position, batwing.Bounds);
             this.canvas.Children.Add(image);
+        }
+
+        private void DrawBigEnemy(GameObject bigEnemy)
+        {
+            var enemy = new Rectangle
+            {
+                Fill = Brushes.Black,
+                Width = bigEnemy.Bounds.Width,
+                Height = bigEnemy.Bounds.Height
+            };
+            Canvas.SetLeft(enemy, bigEnemy.Position.Left);
+            Canvas.SetTop(enemy, bigEnemy.Position.Top);
+            this.canvas.Children.Add(enemy);
         }
 
         private void DrawEnemy(GameObject enemy)

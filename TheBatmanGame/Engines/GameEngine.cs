@@ -18,7 +18,7 @@ namespace TheBatmanGame.Engines
         private const int BatwingSizeWidth = 100;
         private const int BatmanSpeed = 25;
         private const int TimerTickIntervalInMilliseconds = 100;
-        private const int GenerateEnemyChange = 90;
+        private const int SpawnEnemyChange = 90;
         private const int ScoreForKill = 45;
         private const int ScoreForTick = 10;
         private const int ProjectileMoveSpeed = 105;
@@ -57,7 +57,7 @@ namespace TheBatmanGame.Engines
 
             this.GameObjects = new List<GameObject>();
 
-            this.CollisionDetector = new SimpleCollisionDetector();
+            this.CollisionDetector = new ComplexCollisionDetector();
         }
 
         private void HandleUIActionHappened(object sender, KeyDownEventArgs e)
@@ -125,7 +125,7 @@ namespace TheBatmanGame.Engines
             this.renderer.Clear();
             this.renderer.Draw(this.Batwing);
 
-            if (rand.Next(100) < GenerateEnemyChange)
+            if (rand.Next(100) < SpawnEnemyChange)
             {
                 var enemy = this.enemiesFactory.Get(this.renderer.ScreenWidth, rand.Next(this.renderer.ScreenHeight));
                 this.Enemies.Add(enemy);
