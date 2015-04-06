@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TheBatmanGame.GameObjects.Enemies;
 
 namespace TheBatmanGame.GameObjects.Factories
 {
@@ -27,7 +28,7 @@ namespace TheBatmanGame.GameObjects.Factories
             {
                 if (rand.Next(100) < BossEnemySpawnChance)
                 {
-                    return new BigEnemyGameObject(5)
+                    return new BossEnemyGameObject()
                     {
                         Position = new Position(left, top),
                         Bounds = new Size(BossEnemyBoundsWidth, BossEnemyBoundsHeight)

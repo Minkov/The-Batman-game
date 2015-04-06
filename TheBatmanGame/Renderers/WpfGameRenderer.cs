@@ -12,6 +12,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using TheBatmanGame.Engines;
 using TheBatmanGame.GameObjects;
+using TheBatmanGame.GameObjects.Enemies;
+using TheBatmanGame.GameObjects.Projectiles;
 using TheBatmanGame.Misc;
 using TheBatmanGame.Windows;
 
@@ -21,21 +23,12 @@ namespace TheBatmanGame.Renderers
     {
         private const string BatwingImagePath = "/Images/batwing.png";
         private const string YamatoImagePath = "/Images/projectiles/yamato.png";
+        private const string EnemyImagePath = "/Images/enemies/enemy.png";
+        private const string BossEnemyImagePath = "/Images/enemies/boss-enemy.png";
 
         public event EventHandler<KeyDownEventArgs> UIActionHappened;
-        
-        private static string[] enemyImageSources;
-        static Random rand = new Random();
 
         private Canvas canvas;
-
-        static WpfGameRenderer()
-        {
-            var dir = new DirectoryInfo("./Images/Enemies");
-            enemyImageSources = dir.GetFiles()
-                                   .Select(file => file.FullName)
-                                   .ToArray();
-        }
 
         public WpfGameRenderer(Canvas canvas)
         {
@@ -97,6 +90,10 @@ namespace TheBatmanGame.Renderers
                 {
                     this.DrawBatwing(go);
                 }
+                else if (go is BossEnemyGameObject)
+                {
+                    this.DrawBossEnemy(go);
+                }
                 else if (go is EnemyGameObject)
                 {
                     this.DrawEnemy(go);
@@ -111,6 +108,7 @@ namespace TheBatmanGame.Renderers
                 }
             }
         }
+
 
         private void DrawYamato(GameObject yamato)
         {
@@ -139,6 +137,11 @@ namespace TheBatmanGame.Renderers
             this.canvas.Children.Add(image);
         }
 
+        private void DrawBossEnemy(GameObject enemy)
+        {
+            var image = CreateImageForCanvas(BossEnemyImagePath, enemy.Position, enemy.Bounds);
+            this.canvas.Children.Add(image);
+        }
         private void DrawBigEnemy(GameObject bigEnemy)
         {
             var enemy = new Rectangle
@@ -154,8 +157,7 @@ namespace TheBatmanGame.Renderers
 
         private void DrawEnemy(GameObject enemy)
         {
-            var enemyPath = enemyImageSources[rand.Next(enemyImageSources.Length)];
-            var image = CreateImageForCanvas(enemyPath, enemy.Position, enemy.Bounds);
+            var image = CreateImageForCanvas(EnemyImagePath, enemy.Position, enemy.Bounds);
             this.canvas.Children.Add(image);
         }
 

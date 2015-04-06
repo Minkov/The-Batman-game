@@ -41,6 +41,11 @@ namespace TheBatmanGame.Windows
 
         private void OnSaveHighscoreButtonClick(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrEmpty(this.TextBoxNickname.Text))
+            {
+                MessageBox.Show("You should provide a Nickname");
+                return;
+            }
             XmlHighscoreStorage.Instance.Add(new PlayerHighscore(this.TextBoxNickname.Text, this.Highscore));
             new InitialGameWindow().Show();
             this.Close();

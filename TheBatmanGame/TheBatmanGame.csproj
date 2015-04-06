@@ -59,11 +59,12 @@
     <Compile Include="Data\XmlHighScoreStorage.cs" />
     <Compile Include="Engines\IGameEngine.cs" />
     <Compile Include="Extensions\CollectionExtensions.cs" />
-    <Compile Include="GameObjects\BigEnemyGameObject.cs" />
+    <Compile Include="GameObjects\Enemies\BigEnemyGameObject.cs" />
+    <Compile Include="GameObjects\Enemies\BossEnemyGameObject.cs" />
     <Compile Include="GameObjects\Factories\EnemiesFactory.cs" />
     <Compile Include="GameObjects\Factories\IGameObjectFactory.cs" />
     <Compile Include="GameObjects\Factories\ProjectileFactory.cs" />
-    <Compile Include="GameObjects\YamatoGameObject.cs" />
+    <Compile Include="GameObjects\Projectiles\YamatoGameObject.cs" />
     <Compile Include="Misc\ComplexCollisionDetector.cs" />
     <Compile Include="Misc\SimpleCollisionDetector.cs" />
     <Compile Include="Misc\ICollisionDetector.cs" />
@@ -88,10 +89,10 @@
     </Compile>
     <Compile Include="Engines\GameEngine.cs" />
     <Compile Include="GameObjects\BatwingGameObject.cs" />
-    <Compile Include="GameObjects\EnemyGameObject.cs" />
+    <Compile Include="GameObjects\Enemies\EnemyGameObject.cs" />
     <Compile Include="GameObjects\GameObject.cs" />
     <Compile Include="GameObjects\Position.cs" />
-    <Compile Include="GameObjects\ProjectileGameObject.cs" />
+    <Compile Include="GameObjects\Projectiles\ProjectileGameObject.cs" />
     <Compile Include="GameObjects\Size.cs" />
     <Page Include="Windows\GameOverWindow.xaml">
       <SubType>Designer</SubType>
@@ -142,6 +143,7 @@
     <Resource Include="Images\batwing.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\Enemies\boss-enemy.png" />
     <Content Include="Images\Enemies\enemy.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
