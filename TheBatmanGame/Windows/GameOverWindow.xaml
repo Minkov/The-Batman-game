@@ -50,7 +50,16 @@
                         Click="OnSaveHighscoreButtonClick"
                         Grid.Row="1"
                         Grid.Column="0"
-                        Grid.ColumnSpan="2"></Button>
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Width="120"
+                        Height="50"/>
+                <Button Content="Don't save"
+                        Click="OnDontSaveButtonClick"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Width="120"
+                        Height="50"/>
             </Grid>
         </Grid>
     </Border>

@@ -21,8 +21,10 @@
                        VerticalAlignment="Center"
                        FontSize="24"
                        >Use to arrows to move and SPACE to fire</TextBlock>
-            <Border Grid.Row="1"
-                    Background="Pink">
+            <Border Grid.Row="1">
+                <Border.Background>
+                    <ImageBrush ImageSource="/Images/gotham-city.jpeg"/>
+                </Border.Background>
                 <Canvas Name="GameCanvas">
                 </Canvas>
             </Border>

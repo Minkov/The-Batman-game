@@ -5,40 +5,45 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Threading;
 using TheBatmanGame.GameObjects;
+using TheBatmanGame.GameObjects.Enemies;
 using TheBatmanGame.GameObjects.Factories;
+using TheBatmanGame.GameObjects.Projectiles;
 using TheBatmanGame.Misc;
 using TheBatmanGame.Renderers;
+using TheBatmanGame.Extensions;
 
 namespace TheBatmanGame.Engines
 {
-    public class GameEngine
+    public class GameEngine : IGameEngine
     {
-        const int BatwingSizeHeight = 100;
-        const int BatwingSizeWidth = 100;
-        const int BatmanSpeed = 25;
-        const int TimerTickIntervalInMilliseconds = 100;
-        const int GenerateEnemyChange = 90;
-        const int ScoreForKill = 45;
-        const int ScoreForTick = 10;
+        private const int BatwingSizeHeight = 100;
+        private const int BatwingSizeWidth = 100;
+        private const int BatmanSpeed = 25;
+        private const int TimerTickIntervalInMilliseconds = 100;
+        private const int SpawnEnemyChange = 90;
+        private const int ScoreForKill = 45;
+        private const int ScoreForTick = 10;
+        private const int ProjectileMoveSpeed = 105;
+        private const int EnemyMoveSpeed = -50;
 
         private IGameRenderer renderer;
         private IGameObjectFactory projectilesFactory;
         private IGameObjectFactory enemiesFactory;
-
-        static Random rand = new Random();
         private DispatcherTimer timer;
 
-        private int HighScore { get; set; }
+        public int HighScore { get; private set; }
 
-        private BatwingGameObject Batwing { get; set; }
+        static Random rand = new Random();
+        
+        public BatwingGameObject Batwing { get; private set; }
 
-        private List<GameObject> Projectiles { get; set; }
+        public List<GameObject> Projectiles { get; private set; }
 
-        private List<GameObject> Enemies { get; set; }
+        public List<GameObject> Enemies { get; private set; }
 
-        public List<GameObject> GameObjects { get; set; }
+        public List<GameObject> GameObjects { get; private set; }
 
-        public CollisionDetector CollisionDetector { get; set; }
+        public ICollisionDetector CollisionDetector { get; private set; }
 
         public GameEngine(IGameRenderer renderer)
         {
@@ -54,7 +59,7 @@ namespace TheBatmanGame.Engines
 
             this.GameObjects = new List<GameObject>();
 
-            this.CollisionDetector = new CollisionDetector();
+            this.CollisionDetector = new ComplexCollisionDetector();
         }
 
         private void HandleUIActionHappened(object sender, KeyDownEventArgs e)
@@ -109,25 +114,6 @@ namespace TheBatmanGame.Engines
             this.GameObjects.Add(projectileBottom);
         }
 
-        public void InitGame()
-        {
-            this.Batwing = new BatwingGameObject
-            {
-                Position = new Position(0, (this.renderer.ScreenHeight - BatwingSizeHeight) / 2),
-                Bounds = new Size(BatwingSizeWidth, BatwingSizeHeight),
-            };
-            this.Projectiles.Clear();
-        }
-
-        public void StartGame()
-        {
-            this.timer = new DispatcherTimer();
-            this.timer.Interval = TimeSpan.FromMilliseconds(TimerTickIntervalInMilliseconds);
-            //game loop
-            this.timer.Tick += this.GameLoop;
-            this.timer.Start();
-        }
-
         private void GameLoop(object sender, EventArgs e)
         {
             this.HighScore += ScoreForTick;
@@ -141,18 +127,19 @@ namespace TheBatmanGame.Engines
             this.renderer.Clear();
             this.renderer.Draw(this.Batwing);
 
-            if (rand.Next(100) < GenerateEnemyChange)
+            if (rand.Next(100) < SpawnEnemyChange)
             {
                 var enemy = this.enemiesFactory.Get(this.renderer.ScreenWidth, rand.Next(this.renderer.ScreenHeight));
                 this.Enemies.Add(enemy);
                 this.GameObjects.Add(enemy);
             }
 
-            KillEnemiesIfColliding();
+            this.KillEnemiesIfColliding();
 
             this.HighScore += this.Enemies.Count(enemy => !enemy.IsAlive) * ScoreForKill;
-            RemoveNotAliveGameObjects();
-            DrawGameObjects();
+            this.RemoveNotAliveGameObjects();
+            this.UpdateObjectsPositions();
+            this.DrawGameObjects();
         }
 
         private void KillEnemiesIfColliding()
@@ -171,7 +158,7 @@ namespace TheBatmanGame.Engines
             }
         }
 
-        private void DrawGameObjects()
+        private void UpdateObjectsPositions()
         {
             foreach (var go in this.GameObjects)
             {
@@ -180,31 +167,49 @@ namespace TheBatmanGame.Engines
                 if (go is ProjectileGameObject)
                 {
                     top = go.Position.Top;
-                    left = go.Position.Left + 105;
+                    left = go.Position.Left + ProjectileMoveSpeed;
                 }
                 else if (go is EnemyGameObject)
                 {
                     top = go.Position.Top + rand.Next(-10, 10);
-                    left = go.Position.Left - 50;
+                    left = go.Position.Left + EnemyMoveSpeed;
                 }
                 go.Position = new Position(left, top);
-                this.renderer.Draw(go);
             }
+        }
+
+        private void DrawGameObjects()
+        {
+            this.GameObjects.ForEach(go => this.renderer.Draw(go));
         }
 
         private void RemoveNotAliveGameObjects()
         {
-            foreach (var go in this.GameObjects)
-            {
-                if (!this.renderer.IsInBounds(go.Position))
-                {
-                    go.IsAlive = false;
-                }
-            }
+            this.GameObjects.Where(go => !this.renderer.IsInBounds(go.Position))
+                .ForEach(go => go.IsAlive = false);
 
             this.GameObjects.RemoveAll(go => !go.IsAlive);
             this.Enemies.RemoveAll(enemy => !enemy.IsAlive);
             this.Projectiles.RemoveAll(projectile => !projectile.IsAlive);
+        }
+        
+        public void InitGame()
+        {
+            this.Batwing = new BatwingGameObject
+            {
+                Position = new Position(0, (this.renderer.ScreenHeight - BatwingSizeHeight) / 2),
+                Bounds = new Size(BatwingSizeWidth, BatwingSizeHeight),
+            };
+            this.Projectiles.Clear();
+        }
+
+        public void StartGame()
+        {
+            this.timer = new DispatcherTimer();
+            this.timer.Interval = TimeSpan.FromMilliseconds(TimerTickIntervalInMilliseconds);
+            //game loop
+            this.timer.Tick += this.GameLoop;
+            this.timer.Start();
         }
     }
 }
