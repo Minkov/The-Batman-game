@@ -34,7 +34,7 @@ namespace TheBatmanGame.Engines
         public int HighScore { get; private set; }
 
         static Random rand = new Random();
-        
+
         public BatwingGameObject Batwing { get; private set; }
 
         public List<GameObject> Projectiles { get; private set; }
@@ -68,6 +68,10 @@ namespace TheBatmanGame.Engines
             {
                 this.FireProjectile();
             }
+            else if (e.Command == GameCommand.PlayPause)
+            {
+                this.PlayPauseGame();
+            }
             else
             {
                 int updateTop = 0;
@@ -98,6 +102,18 @@ namespace TheBatmanGame.Engines
                 {
                     this.Batwing.Position = position;
                 }
+            }
+        }
+
+        private void PlayPauseGame()
+        {
+            if (this.timer.IsEnabled)
+            {
+                this.timer.Stop();
+            }
+            else
+            {
+                this.timer.Start();
             }
         }
 
@@ -192,7 +208,7 @@ namespace TheBatmanGame.Engines
             this.Enemies.RemoveAll(enemy => !enemy.IsAlive);
             this.Projectiles.RemoveAll(projectile => !projectile.IsAlive);
         }
-        
+
         public void InitGame()
         {
             this.Batwing = new BatwingGameObject

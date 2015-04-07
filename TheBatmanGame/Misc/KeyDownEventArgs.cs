@@ -12,7 +12,8 @@ namespace TheBatmanGame.Misc
         MoveUp,
         MoveDown,
         MoveLeft,
-        MoveRight
+        MoveRight,
+        PlayPause
     };
 
     public class KeyDownEventArgs : EventArgs

@@ -20,7 +20,7 @@
                        TextAlignment="Center"
                        VerticalAlignment="Center"
                        FontSize="24"
-                       >Use to arrows to move and SPACE to fire</TextBlock>
+                       >Use to arrows to move, SPACE to fire and ENTER for Play/Pause</TextBlock>
             <Border Grid.Row="1">
                 <Border.Background>
                     <ImageBrush ImageSource="/Images/gotham-city.jpeg"/>

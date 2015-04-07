@@ -109,7 +109,6 @@ namespace TheBatmanGame.Renderers
             }
         }
 
-
         private void DrawYamato(GameObject yamato)
         {
             var image = this.CreateImageForCanvas(YamatoImagePath, yamato.Position, yamato.Bounds);
@@ -142,6 +141,7 @@ namespace TheBatmanGame.Renderers
             var image = CreateImageForCanvas(BossEnemyImagePath, enemy.Position, enemy.Bounds);
             this.canvas.Children.Add(image);
         }
+
         private void DrawBigEnemy(GameObject bigEnemy)
         {
             var enemy = new Rectangle
@@ -195,6 +195,9 @@ namespace TheBatmanGame.Renderers
                     break;
                 case Key.Right:
                     command = GameCommand.MoveRight;
+                    break;
+                case Key.Enter:
+                    command = GameCommand.PlayPause;
                     break;
                 default:
                     command = GameCommand.Fire;
